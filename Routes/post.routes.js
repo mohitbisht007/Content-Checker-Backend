@@ -1,6 +1,10 @@
 import express from "express"
-import { authenticate } from "../Middlewares/authenticateUser"
+import { authenticate } from "../Middlewares/authenticateUser.js"
+import { createPost, getPost } from "../Controllers/post.controller.js"
 
-const router = express.Router()
+const postRouter = express.Router()
 
-router.post("")
+postRouter.post("/fetchPost", authenticate, createPost)
+postRouter.get("/getPost", authenticate, getPost)
+
+export default postRouter

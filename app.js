@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import router from "./Routes/user.routes.js"
+import postRouter from "./Routes/post.routes.js"
 import { authenticate } from "./Middlewares/authenticateUser.js"
 
 dotenv.config()
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 })
 
 app.use("/api", router)
+app.use("/api", postRouter)
 
 app.get("/test", authenticate, (req, res) => {
     res.send(req.user)

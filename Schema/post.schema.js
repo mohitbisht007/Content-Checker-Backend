@@ -15,19 +15,16 @@ const postSchema = new mongoose.Schema({
     },
     lastModified: {
         type: Date,
-        required: true
     },
     lastHash: {
         type: String,
-        required: true
     },
     lastChecked: {
         type: Date,
-        required: true
     },
     trend : {
-        clicks: [{date, value}],
-        impression: [{date, value}]
+        clicks: [{date: Date, value: Number}],
+        impression: [{date: Date, value: Number}]
     },
     freshnessScore: {
         type: Number,
